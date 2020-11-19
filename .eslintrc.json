@@ -1,0 +1,13 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": "prettier",
+  "parserOptions": {
+    "project": [
+      "./tsconfig.json",
+      "./test/tsconfig.json"
+    ]
+  }
+}
