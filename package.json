@@ -1,0 +1,26 @@
+{
+  "name": "posthtml-external-link",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SukkaW/posthtml-external-link.git"
+  },
+  "keywords": [
+    "posthtml",
+    "posthtml-plugins",
+    "nofollow",
+    "seo",
+    "external-link"
+  ],
+  "author": "Sukka <https://skk.moe>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SukkaW/posthtml-external-link/issues"
+  },
+  "homepage": "https://github.com/SukkaW/posthtml-external-link#readme"
+}
