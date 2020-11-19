@@ -3,7 +3,7 @@ import chai from 'chai'
 chai.should();
 
 import posthtml from 'posthtml'
-import plugin from '../src'
+import { posthtmlExternalLink as plugin } from '../src'
 
 describe('posthtml-external-link', () => {
   context('plugin option', () => {
