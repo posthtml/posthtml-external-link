@@ -1,12 +1,13 @@
 import { Node } from 'posthtml';
 
 export type Options = {
-  exclude?: string | string[]
+  exclude?: string | string[],
+  noreferrer?: boolean
 }
 
 type cacheApplyFunc = () => boolean;
 
-export default function createPostHtmlExternalLinkPlugin(
+export function posthtmlExternalLink(
   config?: Options
 ): (tree: Node) => void {
   return function postHtmlExternalLinkPlugin(tree: Node): Node {
@@ -32,6 +33,9 @@ export default function createPostHtmlExternalLinkPlugin(
           rels.add('noopenner');
           rels.add('nofollow');
           rels.add('external');
+          if (config.noreferrer) {
+            rels.add('noreferrer');
+          }
 
           node.attrs.rel = Array.from(rels).join(' ');
         } else {
