@@ -3,9 +3,9 @@ import { Node } from 'posthtml';
 export type Options = {
   exclude?: string | string[],
   noreferrer?: boolean
-}
+};
 
-type cacheApplyFunc = () => boolean;
+type CacheApplyFunc = () => boolean;
 
 export function posthtmlExternalLink(
   config?: Options
@@ -15,10 +15,10 @@ export function posthtmlExternalLink(
 
     tree.walk((node: Node): Node => {
       if (
-        node.tag &&
-        node.tag === 'a' &&
-        node.attrs &&
-        node.attrs.href
+        node.tag
+        && node.tag === 'a'
+        && node.attrs
+        && node.attrs.href
       ) {
         if (config) {
           const exclude = Array.isArray(config.exclude) ? config.exclude : [config.exclude];
@@ -49,12 +49,12 @@ export function posthtmlExternalLink(
     });
 
     return tree;
-  }
+  };
 }
 
 const cache: Map<string, boolean> = new Map();
-function cacheApply(key: string, value: boolean | cacheApplyFunc): boolean {
-  if (cache.has(key)) return cache.get(key)!;
+function cacheApply(key: string, value: boolean | CacheApplyFunc): boolean {
+  if (cache.has(key)) return cache.get(key) ?? false;
 
   if (typeof value === 'function') value = value();
   cache.set(key, value);
@@ -65,9 +65,9 @@ function cacheApply(key: string, value: boolean | cacheApplyFunc): boolean {
 function isExternalLink(input: string, exclude?: (string | undefined)[]): boolean {
   return cacheApply(input, () => {
     if (
-      !input.startsWith('//') &&
-      !input.startsWith('http://') &&
-      !input.startsWith('https://')
+      !input.startsWith('//')
+      && !input.startsWith('http://')
+      && !input.startsWith('https://')
     ) {
       return false;
     }

@@ -1,9 +1,9 @@
-import 'ts-mocha'
-import chai from 'chai'
+import 'ts-mocha';
+import chai from 'chai';
 chai.should();
 
-import posthtml from 'posthtml'
-import { posthtmlExternalLink as plugin } from '../src'
+import posthtml from 'posthtml';
+import { posthtmlExternalLink as plugin } from '../src';
 
 describe('posthtml-external-link', () => {
   context('plugin option', () => {
@@ -60,7 +60,7 @@ describe('posthtml-external-link', () => {
         '<a href="http://skk.moe">Example</a>',
         '<a href="https://skk.moe">Example</a>',
         '<a href="//skk.moe">Example</a>',
-        '<a href="#test">Example</a>',
+        '<a href="#test">Example</a>'
       ];
 
       const results = await Promise.all(fixtures.map(fixture => posthtml([plugin({ exclude: ['skk.moe'] })]).process(fixture)));
