@@ -30,7 +30,7 @@ export function posthtmlExternalLink(
 
         if (node.attrs.rel) {
           const rels = new Set(node.attrs.rel.split(/\s+/));
-          rels.add('noopenner');
+          rels.add('noopener');
           rels.add('nofollow');
           rels.add('external');
           if (config.noreferrer) {
@@ -39,7 +39,7 @@ export function posthtmlExternalLink(
 
           node.attrs.rel = Array.from(rels).join(' ');
         } else {
-          node.attrs.rel = 'noopenner nofollow external';
+          node.attrs.rel = 'noopener nofollow external';
         }
 
         node.attrs.target = '_blank';

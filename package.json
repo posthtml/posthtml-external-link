@@ -1,7 +1,7 @@
 {
   "name": "posthtml-external-link",
   "version": "0.1.0",
-  "description": "Add 'rel=\"external noopenner nofollow\"' and 'target=\"_blank\"' to all external links [PostHTML Plugin]",
+  "description": "Add 'rel=\"external noopener nofollow\"' and 'target=\"_blank\"' to all external links [PostHTML Plugin]",
   "main": "dist",
   "files": [
     "dist"

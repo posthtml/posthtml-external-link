@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/npm/l/posthtml-external-link.svg?style=flat-square)](./LICENSE)
 [![Build using TypeScript](https://img.shields.io/badge/definitions-TypeScript-blue.svg?style=flat-square)](https://www.typescriptlang.org/)
 
-A [PostHTML](https://posthtml.org) plugin to add `rel="external noopenner nofollow"` and `"target=_blank"` to all external links automatically, for privacy and SEO. [Read more](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types).
+A [PostHTML](https://posthtml.org) plugin to add `rel="external noopener nofollow"` and `"target=_blank"` to all external links automatically, for privacy and SEO. [Read more](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types).
 
 ## Installations
 

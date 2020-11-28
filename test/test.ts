@@ -18,14 +18,14 @@ describe('posthtml-external-link', () => {
     it('option.exclude - string', async () => {
       const { html: result } = await posthtml([plugin({ exclude: 'skk.moe' })]).process('<a href="https://example.com/">Example</a>');
 
-      result.should.include('" rel="noopenner nofollow external"');
+      result.should.include('" rel="noopener nofollow external"');
       result.should.include('" target="_blank"');
     });
 
     it('options.exlude - array', async () => {
       const { html: result } = await posthtml([plugin({ exclude: ['skk.moe'] })]).process('<a href="https://example.com/">Example</a>');
 
-      result.should.include('" rel="noopenner nofollow external"');
+      result.should.include('" rel="noopener nofollow external"');
       result.should.include('" target="_blank"');
     });
   });
@@ -74,7 +74,7 @@ describe('posthtml-external-link', () => {
     it('rel attr', async () => {
       const { html: result } = await posthtml([plugin({ exclude: ['skk.moe'] })]).process('<a href="https://example.com/" rel="example">Example</a>');
 
-      result.should.include('" rel="example noopenner nofollow external"');
+      result.should.include('" rel="example noopener nofollow external"');
       result.should.include('" target="_blank"');
     });
 
