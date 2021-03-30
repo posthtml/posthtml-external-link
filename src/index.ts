@@ -30,7 +30,6 @@ export function posthtmlExternalLink(
 
         // :: append rels to the element's [rel] value.
         //    failsafes in case [rel] is not defined yet.
-        // const rels = new Set((node.attrs.rel || '').split(/\s+/));
         const rels = node.attrs.rel
           ? new Set(node.attrs.rel.split(/\s+/))
           : new Set()
