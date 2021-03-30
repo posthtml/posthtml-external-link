@@ -87,20 +87,20 @@ describe('posthtml-external-link', () => {
       const input = '<a href="https://example.com" rel="example">Example</a>';
       const { html: result } = await parser.process(input);
 
-      result.should.include(' rel="example noreferrer noopener nofollow external"')
-    })
+      result.should.include(' rel="example noreferrer noopener nofollow external"');
+    });
 
     it('adds noreferrer even to elements without an existing [rel]', async () => {
       const parser = posthtml([plugin({
         exclude: ['skk.moe'],
         noreferrer: true
-      })])
+      })]);
 
       const input = '<a href="https://example.com">Example</a>';
       const { html: result } = await parser.process(input);
 
-      result.should.include(' rel="noreferrer noopener nofollow external"')
-    })
+      result.should.include(' rel="noreferrer noopener nofollow external"');
+    });
 
     it('target attr', async () => {
       const { html: result } = await posthtml([plugin({ exclude: ['skk.moe'] })]).process('<a href="https://example.com/" target="_self">Example</a>');

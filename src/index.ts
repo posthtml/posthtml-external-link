@@ -32,9 +32,10 @@ export function posthtmlExternalLink(
         //    failsafes in case [rel] is not defined yet.
         const rels = node.attrs.rel
           ? new Set(node.attrs.rel.split(/\s+/))
-          : new Set()
+          : new Set();
 
-        config.noreferrer && rels.add('noreferrer')
+        // config.noreferrer && rels.add('noreferrer');
+        if (config.noreferrer) rels.add('noreferrer');
         rels.add('noopener');
         rels.add('nofollow');
         rels.add('external');
