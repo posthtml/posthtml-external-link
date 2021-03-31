@@ -28,19 +28,19 @@ export function posthtmlExternalLink(
           }
         }
 
-        if (node.attrs.rel) {
-          const rels = new Set(node.attrs.rel.split(/\s+/));
-          rels.add('noopener');
-          rels.add('nofollow');
-          rels.add('external');
-          if (config.noreferrer) {
-            rels.add('noreferrer');
-          }
+        // :: append rels to the element's [rel] value.
+        //    failsafes in case [rel] is not defined yet.
+        const rels = node.attrs.rel
+          ? new Set(node.attrs.rel.split(/\s+/))
+          : new Set();
 
-          node.attrs.rel = Array.from(rels).join(' ');
-        } else {
-          node.attrs.rel = 'noopener nofollow external';
-        }
+        // config.noreferrer && rels.add('noreferrer');
+        if (config.noreferrer) rels.add('noreferrer');
+        rels.add('noopener');
+        rels.add('nofollow');
+        rels.add('external');
+
+        node.attrs.rel = Array.from(rels).join(' ');
 
         node.attrs.target = '_blank';
       }
